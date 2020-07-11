@@ -12,6 +12,8 @@ public class ToggleBoxItem : PoweredItem
 
     public override void Place()
     {
+        base.Place();
+
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
     }

@@ -15,6 +15,7 @@ public class ItemControllerView : MonoBehaviour
     private void Awake()
     {
         _controller.ItemsChanged += OnItemsChanged;
+        _controller.SelectionChanged += () => UpdateSelection(_controller.Items.Keys.ToList());
     }
 
     void OnItemsChanged()
@@ -54,7 +55,6 @@ public class ItemControllerView : MonoBehaviour
             _selectionTransform.gameObject.SetActive(false);
             return;
         }
-
 
         for (int i = 0; i < items.Count; i++)
         {

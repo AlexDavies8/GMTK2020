@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class PhysicsItem : PlacedItem
 {
+    public Rigidbody2D Rigidbody { get; private set; }
+
     Vector2Int _editGridPosition;
-    Rigidbody2D _rigidbody;
 
     public override void Place()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        base.Place();
+
+        _editGridPosition = GridPosition;
+
+        Rigidbody = GetComponent<Rigidbody2D>();
     }
 
     public override void EnterPlay()
     {
         _editGridPosition = GridPosition;
-        _rigidbody.simulated = true;
+        Rigidbody.simulated = true;
     }
 
     public override void EnterEdit()
     {
         GridPosition = _editGridPosition;
-        _rigidbody.velocity = Vector2.zero;
-        _rigidbody.simulated = false;
+        Rigidbody.velocity = Vector2.zero;
+        Rigidbody.simulated = false;
     }
 }

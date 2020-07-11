@@ -6,15 +6,16 @@ using MultiState;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] private Camera _camera = null;
+    [SerializeField] private Rect _gameArea = new Rect();
     [SerializeField] private ItemController _itemController = null;
     [SerializeField] private Transform _placedItemContainer = null;
-    [SerializeField] private Rect _gameArea = new Rect();
 
     public ItemController ItemController => _itemController;
     public Transform PlacedItemContainer => _placedItemContainer;
 
     public List<PlacedItem> PlacedItems { get; private set; } = new List<PlacedItem>();
     public bool Playing { get; set; }
+    public bool WireMode { get; set; }
 
     StateMachine _stateMachine;
 
@@ -48,10 +49,7 @@ public class LevelController : MonoBehaviour
         var itemController = ItemController;
 
         Vector2Int placePosition = GetMouseGridPosition();
-        foreach (var existingItem in PlacedItems)
-        {
-            if (existingItem.GridPosition == placePosition) return;
-        }
+        if (!CanPlaceItem(placePosition)) return;
 
         if (!itemController.RemoveItem(item)) return;
 
@@ -60,32 +58,36 @@ public class LevelController : MonoBehaviour
 
         placedItem.GridPosition = placePosition;
         placedItem.Item = item;
-        placedItem.Place();
 
+        AddItem(placedItem);
+    }
+
+    public void AddItem(PlacedItem placedItem)
+    {
+        placedItem.Place();
         PlacedItems.Add(placedItem);
     }
 
     public void RemoveItem(Vector2Int gridPosition)
     {
-        for (int i = 0; i < PlacedItems.Count; i++)
-        {
-            if (PlacedItems[i].GridPosition == gridPosition)
-            {
-                var placedItem = PlacedItems[i];
+        var placedItem = GetPlacedItemAt(gridPosition);
 
-                ItemController.AddItem(placedItem.Item);
+        if (placedItem == null || !placedItem.Removable) return;
 
-                placedItem.Remove();
-                PlacedItems.RemoveAt(i);
+        ItemController.AddItem(placedItem.Item);
 
-                return;
-            }
-        }
+        placedItem.Remove();
+        PlacedItems.Remove(placedItem);
+    }
+
+    public Vector2 GetTrueMousePosition()
+    {
+        return (Vector2)_camera.ScreenToWorldPoint(Input.mousePosition);
     }
 
     public Vector2Int GetMouseGridPosition()
     {
-        var placePosition = (Vector2)_camera.ScreenToWorldPoint(Input.mousePosition) - Vector2.one * 0.5f;
+        var placePosition = GetTrueMousePosition() - Vector2.one * 0.5f;
         return new Vector2Int(Mathf.RoundToInt(placePosition.x), Mathf.RoundToInt(placePosition.y));
     }
 
@@ -97,5 +99,25 @@ public class LevelController : MonoBehaviour
     public bool MouseInsideGameArea()
     {
         return _gameArea.Contains(GetMousePosition());
+    }
+
+    public PlacedItem GetPlacedItemAt(Vector2Int gridPosition)
+    {
+        for (int i = 0; i < PlacedItems.Count; i++)
+        {
+            if (PlacedItems[i].GridPosition == gridPosition) return PlacedItems[i];
+        }
+
+        return null;
+    }
+
+    public bool CanPlaceItem(Vector2Int gridPosition)
+    {
+        if (GetPlacedItemAt(gridPosition) != null) return false;
+
+        var collider = Physics2D.OverlapPoint(gridPosition + Vector2.one * 0.5f);
+        if (collider) return false;
+
+        return true;
     }
 }

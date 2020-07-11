@@ -11,6 +11,8 @@ public class ButtonItem : PowerSourceItem
 
     public override void Place()
     {
+        base.Place();
+
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

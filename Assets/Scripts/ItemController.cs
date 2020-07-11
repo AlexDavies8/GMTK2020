@@ -12,21 +12,27 @@ public class ItemController : MonoBehaviour
     public Dictionary<Item, int> Items { get; private set; } = new Dictionary<Item, int>();
     public Action ItemsChanged { get; set; }
     public Item SelectedItem { get; private set; }
+    public Action SelectionChanged { get; set; }
 
     private void Awake()
     {
         if (!_camera) _camera = Camera.main;
+    }
 
+    private void Start()
+    {
         if (_startItems) Items = _startItems.GetItemDictionary();
         ItemsChanged.Invoke();
     }
 
     public void SelectItem(Item item)
     {
-        if (!Items.ContainsKey(item)) return;
+        if (item != null && !Items.ContainsKey(item)) return;
 
         if (SelectedItem == item) SelectedItem = null;
         else SelectedItem = item;
+
+        SelectionChanged?.Invoke();
     }
 
     public void AddItem(Item item)
