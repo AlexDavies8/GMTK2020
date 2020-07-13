@@ -98,7 +98,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea765b6b959796c42ba0cbe93cf69828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attachPoint: {fileID: 3130759082281303063}
+  _removable: 1
+  _placeOnAwake: 0
+  _item:
+    _icon: {fileID: 0}
+    _prefab: {fileID: 0}
+    _solid: 1
+  _placeSound: {fileID: 8300000, guid: 82a8f64cb4f575449a36316649be30b0, type: 3}
+  _attachTransform: {fileID: 3130759082281303063}
+  _powerSound: {fileID: 8300000, guid: 82a8f64cb4f575449a36316649be30b0, type: 3}
+  _unpowerSound: {fileID: 8300000, guid: 82aaa0e2b969e5649a51a295c46527dd, type: 3}
+  _wires: []
   _normalSprite: {fileID: 392691118410916767, guid: e13b4fc36dccd1a41a41266a81f7b1f4, type: 3}
   _pressedSprite: {fileID: -8546232967169461530, guid: e13b4fc36dccd1a41a41266a81f7b1f4, type: 3}
 --- !u!61 &-4370848057104659643
@@ -111,7 +121,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.4375}
@@ -125,7 +135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.875, y: 0.125}
+  m_Size: {x: 0.625, y: 0.125}
   m_EdgeRadius: 0
 --- !u!50 &-2597480734060605688
 Rigidbody2D:

@@ -27,7 +27,7 @@ public class ClimbState : IState
         Vector2 moveVector = new Vector2(0f, 1f);
         _player.Rigidbody.velocity = moveVector;
 
-        bool rightOpen = !_player.Raycast(new Vector2(_player.Direction * 0.25f, -0.5f + Time.fixedDeltaTime * 1.1f)).collider;
+        bool rightOpen = !_player.Raycast(new Vector2(_player.Direction * 0.4f, -0.5f + Time.fixedDeltaTime * 1.1f)).collider;
         _player.OnGround = !rightOpen;
         _player.Climbing = !rightOpen;
     }

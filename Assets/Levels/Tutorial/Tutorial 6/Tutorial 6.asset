@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7390ac837a985a846a7d9a2b9dd3330d, type: 3}
+  m_Name: Tutorial 6
+  m_EditorClassIdentifier: 
+  _items:
+  - Item:
+      _icon: {fileID: 9189716506864644732, guid: 31df9048ea988464ca7ff35027d85e41, type: 3}
+      _prefab: {fileID: 7456369937939614965, guid: 2a566b951929d1641b57772ae1219071, type: 3}
+      _solid: 1
+    Count: 3
+  - Item:
+      _icon: {fileID: 3413917792567487076, guid: 31df9048ea988464ca7ff35027d85e41, type: 3}
+      _prefab: {fileID: 2008697601767225490, guid: 443c97cc6a925ec488d3ca3651d3378c, type: 3}
+      _solid: 1
+    Count: 3

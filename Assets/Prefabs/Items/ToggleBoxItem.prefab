@@ -153,6 +153,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8833ea2ccb3cbcd49aef688170a5433b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attachPoint: {fileID: 7731871958471265033}
+  _removable: 1
+  _placeOnAwake: 0
+  _item:
+    _icon: {fileID: 0}
+    _prefab: {fileID: 0}
+    _solid: 1
+  _attachTransform: {fileID: 7731871958471265033}
+  _powerSound: {fileID: 8300000, guid: 002db7dcb03b4fd46912e2ec0b61dadd, type: 3}
+  _unpowerSound: {fileID: 8300000, guid: 002db7dcb03b4fd46912e2ec0b61dadd, type: 3}
   _activeSprite: {fileID: -6696036727529619710, guid: e13b4fc36dccd1a41a41266a81f7b1f4, type: 3}
   _inactiveSprite: {fileID: -1810350540424935137, guid: e13b4fc36dccd1a41a41266a81f7b1f4, type: 3}

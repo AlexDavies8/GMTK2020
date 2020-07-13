@@ -21,6 +21,8 @@ public class ToggleBoxItem : PoweredItem
     [ContextMenu("Power")]
     public override void Power()
     {
+        base.Power();
+
         _spriteRenderer.sprite = _inactiveSprite;
         _collider.enabled = false;
     }
@@ -28,6 +30,8 @@ public class ToggleBoxItem : PoweredItem
     [ContextMenu("Unpower")]
     public override void Unpower()
     {
+        base.Unpower();
+
         _spriteRenderer.sprite = _activeSprite;
         _collider.enabled = true;
     }

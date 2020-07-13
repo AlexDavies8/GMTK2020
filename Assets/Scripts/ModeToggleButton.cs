@@ -12,6 +12,6 @@ public class ModeToggleButton : MonoBehaviour
     {
         _levelController.Playing = !_levelController.Playing;
 
-        _text.text = _levelController.Playing ? "edit" : "play";
+        _text.text = _levelController.Playing ? "stop" : "play";
     }
 }

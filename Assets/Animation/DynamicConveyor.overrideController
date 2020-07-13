@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DynamicConveyor
+  m_Controller: {fileID: 9100000, guid: e26d832d3e6179c4599d02a5ec2655a3, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 4686293122890767332, guid: 31df9048ea988464ca7ff35027d85e41, type: 3}
+    m_OverrideClip: {fileID: -3640149861642676752, guid: 31df9048ea988464ca7ff35027d85e41, type: 3}

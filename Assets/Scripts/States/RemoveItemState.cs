@@ -20,7 +20,8 @@ public class RemoveItemState : IState
     {
         if (Input.GetMouseButtonDown(0) && _levelController.MouseInsideGameArea())
         {
-            _levelController.RemoveItem(_levelController.GetMouseGridPosition());
+            if (!_levelController.RemoveWire())
+                _levelController.RemoveItem(_levelController.GetMouseGridPosition());
         }
     }
 }

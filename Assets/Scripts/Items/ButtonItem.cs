@@ -16,13 +16,18 @@ public class ButtonItem : PowerSourceItem
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) => Press();
+    private void OnCollisionExit2D(Collision2D collision) => Unpress();
+    private void OnTriggerEnter2D(Collider2D collision) => Press();
+    private void OnTriggerExit2D(Collider2D collision) => Unpress();
+
+    private void Press()
     {
         _spriteRenderer.sprite = _pressedSprite;
         Power();
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void Unpress()
     {
         _spriteRenderer.sprite = _normalSprite;
         Unpower();

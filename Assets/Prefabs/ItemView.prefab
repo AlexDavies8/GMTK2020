@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6248018407193014221}
   - component: {fileID: 6248018407193014210}
+  - component: {fileID: 4492033890321521583}
   m_Layer: 5
   m_Name: ItemView
   m_TagString: Untagged
@@ -55,6 +56,19 @@ MonoBehaviour:
   _countText: {fileID: 6248018407976964797}
   _countBackground: {fileID: 6248018407477825148}
   _image: {fileID: 6248018407814316250}
+--- !u!114 &4492033890321521583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248018407193014220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9463fabdcfa0340bae2337db6e83ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: 1
 --- !u!1 &6248018407477825151
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +260,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6248018407814316250}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4492033890321521583}
+        m_TargetAssemblyTypeName: PlayClip, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 002db7dcb03b4fd46912e2ec0b61dadd, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6248018407976964799
 GameObject:
   m_ObjectHideFlags: 0

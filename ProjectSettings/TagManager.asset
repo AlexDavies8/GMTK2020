@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Exit
   - Kill
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Wires
   - 
   - 
   - 

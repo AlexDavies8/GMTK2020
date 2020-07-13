@@ -1,14 +1,17 @@
 ﻿using MultiState;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerItem : PhysicsItem
 {
     [SerializeField] private float _movementSpeed = 1f;
     [SerializeField] private string _killTag = "Kill";
+    [SerializeField] private string _exitTag = "Exit";
     [SerializeField] private Animator _animator = null;
     [SerializeField] private LayerMask _groundLayer = default;
+    [SerializeField] private AudioClip _deathSound = null;
 
     public float MovementSpeed => _movementSpeed;
     public int Direction { get; set; } = 1;
@@ -73,11 +76,21 @@ public class PlayerItem : PhysicsItem
         if (collision.CompareTag(_killTag))
         {
             _dead = true;
+            SoundClipPlayer.PlayClip(_deathSound);
+        }
+        else if (collision.CompareTag(_exitTag) && !_dead)
+        {
+            LevelController.WinLevel();
         }
     }
 
+    List<RaycastHit2D> raycastResults = new List<RaycastHit2D>();
     public RaycastHit2D Raycast(Vector2 offset)
     {
-        return Physics2D.Raycast(transform.position, offset, offset.magnitude, _groundLayer.value);
+        ContactFilter2D filter = new ContactFilter2D() { useTriggers = false, layerMask = _groundLayer.value, useLayerMask = true };
+        
+        Physics2D.CircleCast(transform.position, 0.01f, offset, filter, raycastResults, offset.magnitude);
+
+        return raycastResults.FirstOrDefault();
     }
 }

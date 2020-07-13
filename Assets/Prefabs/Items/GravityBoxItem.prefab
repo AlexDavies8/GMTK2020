@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4642614589741185656}
   - component: {fileID: 8224411308953763024}
+  - component: {fileID: 2541096054127985665}
   m_Layer: 0
   m_Name: KillBox
   m_TagString: Kill
@@ -55,8 +56,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.875, y: 0.0625}
+  m_Size: {x: 0.5, y: 0.0625}
   m_EdgeRadius: 0
+--- !u!114 &2541096054127985665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296003951470882838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c59bbd1a741e3048a4dbd25f163b45d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _impactClip: {fileID: 8300000, guid: 84f99aa5f6e27fc4497ad4c8489f767f, type: 3}
+  _impactTag: Ground
 --- !u!1 &7975140631925191380
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,8 +182,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.96875, y: 0.99}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.8125, y: 0.8125}
+  m_EdgeRadius: 0.0625
 --- !u!50 &7975140631925191381
 Rigidbody2D:
   serializedVersion: 4
@@ -203,3 +218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _removable: 1
+  _placeOnAwake: 0
+  _item:
+    _icon: {fileID: 0}
+    _prefab: {fileID: 0}
+    _solid: 1
+  _placeSound: {fileID: 0}

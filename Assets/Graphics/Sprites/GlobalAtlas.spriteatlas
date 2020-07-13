@@ -46,12 +46,13 @@ SpriteAtlas:
     - {fileID: 2800000, guid: b4bebe0be7ebf60429e48d93a636b658, type: 3}
     - {fileID: -8328923581568760697, guid: e13b4fc36dccd1a41a41266a81f7b1f4, type: 3}
     - {fileID: -8328923581568760697, guid: 0cc11f7519ad1ae49a98508df30dd779, type: 3}
-    totalSpriteSurfaceArea: 27456
+    totalSpriteSurfaceArea: 27712
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 543573147294844175, guid: e13b4fc36dccd1a41a41266a81f7b1f4, type: 3}
   - {fileID: 3502421595545986535, guid: e13b4fc36dccd1a41a41266a81f7b1f4, type: 3}
   - {fileID: -3819116058029380724, guid: e13b4fc36dccd1a41a41266a81f7b1f4, type: 3}
   - {fileID: 5454629333678110321, guid: e13b4fc36dccd1a41a41266a81f7b1f4, type: 3}
@@ -161,6 +162,7 @@ SpriteAtlas:
   - {fileID: -441622801344744822, guid: 68d7099fdd25100438e6b46e0f719289, type: 3}
   - {fileID: -3858803718317965580, guid: 68d7099fdd25100438e6b46e0f719289, type: 3}
   m_PackedSpriteNamesToIndex:
+  - DynamicTiles_13
   - DynamicTiles_12
   - DynamicTiles_11
   - DynamicTiles_10
